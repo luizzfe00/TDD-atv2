@@ -17,6 +17,7 @@ class GerenciadorTest {
         this.gerenciador.criaTarefa("Atividade de vev", "Preciso fazer a atividade de vev até hoje a noite", "2024 3 1", Prioridade.ALTA);
         this.gerenciador.criaTarefa("Academia", "Ir a academia as 19:00 horas", "2024 3 2", Prioridade.BAIXA);
         this.gerenciador.criaTarefa("Entrega trabalho", "Entregar trabalho de compila hoje", "2024 3 1", Prioridade.ALTA);
+        this.gerenciador.criaTarefa("Roupa", "Levar roupa na costureira", "2024 3 1", Prioridade.MEDIA);
     }
 
     @Test
@@ -50,12 +51,14 @@ class GerenciadorTest {
         ArrayList<Tarefa> tarefas = this.gerenciador.listaTarefas();
 
         Tarefa tarefa1 = new Tarefa("Atividade de vev", "Preciso fazer a atividade de vev até hoje a noite", LocalDate.of(2024,3,1), Prioridade.ALTA);
-        Tarefa tarefa3 = new Tarefa("Academia", "Ir a academia as 19:00 horas", LocalDate.of(2024,3,2), Prioridade.BAIXA);
-        Tarefa tarefa2 = new Tarefa("Entrega trabalho", "Entregar trabalho de compila hoje", LocalDate.of(2024,3,2), Prioridade.ALTA);
+        Tarefa tarefa2 = new Tarefa("Entrega trabalho", "Entregar trabalho de compila hoje", LocalDate.of(2024,3,1), Prioridade.ALTA);
+        Tarefa tarefa3 = new Tarefa("Roupa", "Levar roupa na costureira", LocalDate.of(2024,3,1), Prioridade.MEDIA);
+        Tarefa tarefa4 = new Tarefa("Academia", "Ir a academia as 19:00 horas", LocalDate.of(2024,3,2), Prioridade.BAIXA);
 
 
         assertEquals(tarefas.get(0), tarefa1);
         assertEquals(tarefas.get(1), tarefa2);
         assertEquals(tarefas.get(2), tarefa3);
+        assertEquals(tarefas.get(3), tarefa4);
     }
 }
