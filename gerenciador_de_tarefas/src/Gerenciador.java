@@ -3,31 +3,30 @@ import java.util.HashMap;
 
 public class Gerenciador {
 
-    private HashMap<String, Tarefa> tarefas;
+    private ArrayList<Tarefa> tarefas;
 
     public Gerenciador() {
-        this.tarefas = new HashMap();
+        this.tarefas = new ArrayList();
     }
 
     public boolean criaTarefa(String titulo, String descricao, String dataVencimento, Prioridade prioridade){
         Tarefa tarefa = new Tarefa(titulo, descricao, dataVencimento, prioridade);
-        this.tarefas.put(titulo, tarefa);
+        this.tarefas.add(tarefa);
         return true;
     }
 
-    public boolean atualizaTarefa (String titulo, String campo, String novoValor) {
-        Tarefa tarefa = this.tarefas.get(titulo);
+    public boolean atualizaTarefa (String indexAtividade, String campo, String novoValor) {
+        int index = Integer.parseInt(indexAtividade);
+        Tarefa tarefa = this.tarefas.get(index-1);
 
         switch (campo){
-            case "1":
+            case "titulo":
                 tarefa.setTitulo(novoValor);
-                this.tarefas.remove(titulo);
-                this.tarefas.put(tarefa.getTitulo(), tarefa);
-            case "2":
+            case "descricao":
                 tarefa.setDescricao(novoValor);
-            case "3":
+            case "data de vencimento":
                 tarefa.setDataVencimento(novoValor);
-            case "4":
+            case "prioridade":
                 novoValor = novoValor.toLowerCase();
                 if (novoValor.equals("alta")){
                     tarefa.setPrioridade(Prioridade.ALTA);
@@ -42,8 +41,9 @@ public class Gerenciador {
         return true;
     }
 
-    public boolean excluiTarefa(String titulo) {
-        this.tarefas.remove(titulo);
+    public boolean excluiTarefa(String indexAtividade) {
+        int index = Integer.parseInt(indexAtividade);
+        this.tarefas.remove(index-1);
 
         return true;
     }

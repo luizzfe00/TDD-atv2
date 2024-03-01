@@ -2,6 +2,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestTemplate;
 
+import java.util.HashMap;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class GerenciadorTest {
@@ -23,10 +25,10 @@ class GerenciadorTest {
 
     @Test
     public void testAtualizaTarefa() {
-        boolean status1 = this.gerenciador.atualizaTarefa("Academia", "1", "Yoga");
-        boolean status2 = this.gerenciador.atualizaTarefa("Yoga", "2", "ir segunda");
-        boolean status3 = this.gerenciador.atualizaTarefa("Yoga", "3", "04/03/2024");
-        boolean status4 = this.gerenciador.atualizaTarefa("Yoga", "4", "alta");
+        boolean status1 = this.gerenciador.atualizaTarefa("2", "titulo", "Yoga");
+        boolean status2 = this.gerenciador.atualizaTarefa("2", "descricao", "ir segunda");
+        boolean status3 = this.gerenciador.atualizaTarefa("2", "data de vencimento", "04/03/2024");
+        boolean status4 = this.gerenciador.atualizaTarefa("2", "prioridade", "alta");
 
         assertTrue(status1);
         assertTrue(status2);
@@ -36,8 +38,15 @@ class GerenciadorTest {
 
     @Test
     public void testExcluiTarefa() {
-        boolean status = this.gerenciador.excluiTarefa("Atividade de vev");
+        boolean status = this.gerenciador.excluiTarefa("1");
 
         assertTrue(status);
     }
+
+    /**@Test
+    public void testListaTarefas() {
+        HashMap<String, Tarefa> tarefas = this.gerenciador.listaTarefas();
+
+
+    }*/
 }
