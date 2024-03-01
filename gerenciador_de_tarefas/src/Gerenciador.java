@@ -1,5 +1,7 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 
 public class Gerenciador {
@@ -23,10 +25,13 @@ public class Gerenciador {
         switch (campo){
             case "titulo":
                 tarefa.setTitulo(novoValor);
+                break;
             case "descricao":
                 tarefa.setDescricao(novoValor);
+                break;
             case "data de vencimento":
                 tarefa.setDataVencimento(converteData(novoValor));
+                break;
             case "prioridade":
                 novoValor = novoValor.toLowerCase();
                 if (novoValor.equals("alta")){
@@ -36,6 +41,7 @@ public class Gerenciador {
                 } else {
                     tarefa.setPrioridade(Prioridade.BAIXA);
                 }
+                break;
         }
 
 
@@ -56,5 +62,15 @@ public class Gerenciador {
         int dia = Integer.parseInt(data[2]);
 
         return LocalDate.of(ano,mes, dia);
+    }
+
+    public ArrayList<Tarefa> listaTarefas() {
+        Comparator<Tarefa> comparador = Comparator
+                .comparing(Tarefa::getDataVencimento)
+                .thenComparing(Tarefa::getPrioridade);
+
+        Collections.sort(this.tarefas, comparador);
+
+        return this.tarefas;
     }
 }
