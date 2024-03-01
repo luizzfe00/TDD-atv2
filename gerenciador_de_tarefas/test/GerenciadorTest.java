@@ -2,6 +2,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class GerenciadorTest {
@@ -42,7 +45,7 @@ class GerenciadorTest {
         assertTrue(status);
     }
 
-    /**@Test
+    @Test
     public void testListaTarefas() {
         ArrayList<Tarefa> tarefas = this.gerenciador.listaTarefas();
 
@@ -54,5 +57,5 @@ class GerenciadorTest {
         assertEquals(tarefas.get(0), tarefa1);
         assertEquals(tarefas.get(1), tarefa2);
         assertEquals(tarefas.get(2), tarefa3);
-    }*/
+    }
 }
