@@ -31,4 +31,8 @@ public class Tarefa {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 }
