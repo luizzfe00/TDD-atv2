@@ -10,7 +10,7 @@ class TarefaTest {
 
     @BeforeEach
     public void setup() {
-        tarefa1 = new Tarefa("Atividade de vev", "Preciso fazer a atividade de vev atá hoje a noite", "01/03/2024", Prioridade.ALTA);
+        tarefa1 = new Tarefa("Atividade de vev", "Preciso fazer a atividade de vev até hoje a noite", "01/03/2024", Prioridade.ALTA);
         tarefa2 = new Tarefa("Academia", "Ir a academia as 19:00 horas", "02/03/2024", Prioridade.BAIXA);
     }
 
@@ -29,7 +29,7 @@ class TarefaTest {
         String descricao1 = tarefa1.getDescricao();
         String descricao2 = tarefa2.getDescricao();
 
-        assertEquals(descricao1, "Preciso fazer a atividade de vev atá hoje a noite");
+        assertEquals(descricao1, "Preciso fazer a atividade de vev até hoje a noite");
         assertEquals(descricao2, "Ir a academia as 19:00 horas");
 
     }
@@ -64,6 +64,19 @@ class TarefaTest {
 
         assertEquals(titulo1, "Atividade de compila");
         assertEquals(titulo2, "Yoga");
+
+    }
+
+    @Test
+    public void testSetDescricao() {
+        tarefa1.setDescricao("Preciso fazer a atividade de vev até amanhã");
+        tarefa2.setDescricao("Ir a academia pela manhã");
+
+        String descricao1 = tarefa1.getDescricao();
+        String descricao2 = tarefa2.getDescricao();
+
+        assertEquals(descricao1, "Preciso fazer a atividade de vev até amanhã");
+        assertEquals(descricao2, "Ir a academia pela manhã");
 
     }
 }
