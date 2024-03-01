@@ -15,8 +15,8 @@ class TarefaTest {
 
     @Test
     public void testGetTitulo() {
-        titulo1 = tarefa1.getTitulo();
-        titulo2 = tarefa2.getTitulo();
+        String titulo1 = tarefa1.getTitulo();
+        String titulo2 = tarefa2.getTitulo();
 
         assertEquals(titulo1, "Atividade de vev");
         assertEquals(titulo2, "Academia");
