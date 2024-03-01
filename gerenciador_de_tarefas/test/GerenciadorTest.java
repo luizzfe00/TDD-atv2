@@ -1,5 +1,6 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestTemplate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,6 +16,13 @@ class GerenciadorTest {
 
     @Test
     public void testCriaTarefa() {
-        assertTrue(this.gerenciador.criaTarefa("Contas", "Pagar as contas segunda", "04/03/2024", Prioridade.ALTA));
+        boolean status = this.gerenciador.criaTarefa("Contas", "Pagar as contas segunda", "04/03/2024", Prioridade.ALTA);
+        assertTrue(status);
+    }
+
+    @Test
+    public void testAtualizaTarefa(String titulo, String campo, String novoValor) {
+        boolean status = this.gerenciador.atualizaTarefa(titulo, campo, novoValor);
+        assertTrue(status);
     }
 }
