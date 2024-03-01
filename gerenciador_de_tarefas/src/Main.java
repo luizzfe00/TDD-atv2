@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -32,7 +33,60 @@ public class Main {
                 System.out.print("Insira a priorida(alta, media, baixa:");
                 String prioridade = scanner.nextLine();
 
-                gerenciador.criaTarefa(titulo, descricao, data, prioridade);
+                boolean status = gerenciador.criaTarefa(titulo, descricao, data, prioridade);
+
+                if (status) {
+                    System.out.print("Tarefa criada");
+                } else {
+                    System.out.print("Desculpe. Algo deu errado.");
+                }
+
+                break;
+
+            case "2":
+                System.out.print("Qual a posição da tarefa que você deseja atualizar:");
+                String index = scanner.nextLine();
+
+                System.out.print("Que campo da tarefa você deseja atualizar:");
+                String campo = scanner.nextLine();
+
+                System.out.print("Qual será o novo valor:");
+                String valor = scanner.nextLine();
+
+                boolean status2 = gerenciador.atualizaTarefa(index, campo, valor);
+
+                if (status2) {
+                    System.out.print("Tarefa atualizada");
+                } else {
+                    System.out.print("Desculpe. Algo deu errado.");
+                }
+
+                break;
+
+            case "3":
+                System.out.print("Qual a posição da tarefa que você deseja excluir:");
+                String index2 = scanner.nextLine();
+
+                boolean status3 = gerenciador.excluiTarefa(index2);
+
+                if (status3) {
+                    System.out.print("Tarefa excluida");
+                } else {
+                    System.out.print("Desculpe. Algo deu errado.");
+                }
+
+                break;
+
+            case "4":
+                System.out.print("Essas são suas tarefas:");
+
+                ArrayList<Tarefa> tarefas = gerenciador.listaTarefas();
+
+                for (Tarefa tarefa : tarefas){
+                    System.out.print(tarefa.toString());
+                }
+
+                break;
         }
     }
 }

@@ -111,6 +111,19 @@ class TarefaTest {
         assertEquals(prioridade2, Prioridade.ALTA);
 
     }
+
+    @Test
+    public void testToString() {
+        String conteudo = """
+                            Título: Atividade de vev
+                            Descrição: Preciso fazer a atividade de vev até hoje a noite
+                            Data: 2024-03-01
+                            Prioridade: ALTA
+                            """;
+
+        assertEquals(conteudo, tarefa1.toString());
+
+    }
 }
 
 
