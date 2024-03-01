@@ -33,4 +33,11 @@ class GerenciadorTest {
         assertTrue(status3);
         assertTrue(status4);
     }
+
+    @Test
+    public void testExcluiTarefa() {
+        boolean status = this.gerenciador.excluiTarefa("Atividade de vev");
+
+        assertTrue(status);
+    }
 }
