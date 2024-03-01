@@ -39,4 +39,8 @@ public class Tarefa {
     public void setDataVencimento(String dataVencimento) {
         this.dataVencimento = dataVencimento;
     }
+
+    public void setPrioridade(Prioridade prioridade) {
+        this.prioridade = prioridade;
+    }
 }

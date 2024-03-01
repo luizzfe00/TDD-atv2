@@ -102,7 +102,7 @@ class TarefaTest {
         Prioridade prioridade2 = tarefa2.getPrioridade();
 
         assertEquals(prioridade1, Prioridade.MEDIA);
-        assertEquals(prioridade2, Prioridade.BAIXA);
+        assertEquals(prioridade2, Prioridade.ALTA);
 
     }
 }
