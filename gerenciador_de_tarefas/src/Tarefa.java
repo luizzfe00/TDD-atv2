@@ -11,4 +11,8 @@ public class Tarefa {
         this.data_vencimento = data_vencimento;
         this.prioridade = prioridade;
     }
+
+    public String getTitulo() {
+        return this.titulo;
+    }
 }
