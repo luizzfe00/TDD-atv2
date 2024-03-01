@@ -34,6 +34,16 @@ class TarefaTest {
 
     }
 
+    @Test
+    public void testGetDataVencimento() {
+        String data1 = tarefa1.getDataVencimento();
+        String data2 = tarefa2.getDataVencimento();
+
+        assertEquals(data1, "01/03/2024");
+        assertEquals(data2, "02/03/2024");
+
+    }
+
 }
 
 
