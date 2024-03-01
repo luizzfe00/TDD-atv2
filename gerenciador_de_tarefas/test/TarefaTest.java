@@ -12,8 +12,8 @@ class TarefaTest {
 
     @BeforeEach
     public void setup() {
-        tarefa1 = new Tarefa("Atividade de vev", "Preciso fazer a atividade de vev até hoje a noite", LocalDate.of(2024,03,01), Prioridade.ALTA);
-        tarefa2 = new Tarefa("Academia", "Ir a academia as 19:00 horas", LocalDate.of(2024,03,02), Prioridade.BAIXA);
+        tarefa1 = new Tarefa("Atividade de vev", "Preciso fazer a atividade de vev até hoje a noite", LocalDate.of(2024,3,1), Prioridade.ALTA);
+        tarefa2 = new Tarefa("Academia", "Ir a academia as 19:00 horas", LocalDate.of(2024,3,2), Prioridade.BAIXA);
     }
 
     @Test
@@ -41,8 +41,8 @@ class TarefaTest {
         LocalDate data1 = tarefa1.getDataVencimento();
         LocalDate data2 = tarefa2.getDataVencimento();
 
-        assertEquals(data1, LocalDate.of(2024,03,01));
-        assertEquals(data2, LocalDate.of(2024,03,02));
+        assertEquals(data1, LocalDate.of(2024,3,1));
+        assertEquals(data2, LocalDate.of(2024,3,2));
 
     }
 
@@ -85,8 +85,8 @@ class TarefaTest {
     @Test
     public void testSetDataVencimento() {
 
-        LocalDate novaData1 = LocalDate.of(2024,03,02);
-        LocalDate novaData2 = LocalDate.of(2024,03,04);
+        LocalDate novaData1 = LocalDate.of(2024,3,2);
+        LocalDate novaData2 = LocalDate.of(2024,3,4);
 
         tarefa1.setDataVencimento(novaData1);
         tarefa2.setDataVencimento(novaData2);
