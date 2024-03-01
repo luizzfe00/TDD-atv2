@@ -23,4 +23,8 @@ public class Tarefa {
     public String getDataVencimento() {
         return this.dataVencimento;
     }
+
+    public Prioridade getPrioridade() {
+        return this.prioridade;
+    }
 }
