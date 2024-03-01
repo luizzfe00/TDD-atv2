@@ -44,6 +44,16 @@ class TarefaTest {
 
     }
 
+    @Test
+    public void testGetPrioridade() {
+        Prioridade prioridade1 = tarefa1.getPrioridade();
+        Prioridade prioridade2 = tarefa2.getPrioridade();
+
+        assertEquals(prioridade1, Prioridade.ALTA);
+        assertEquals(prioridade2, Prioridade.BAIXA);
+
+    }
+
 }
 
 
