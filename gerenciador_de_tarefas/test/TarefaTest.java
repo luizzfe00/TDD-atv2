@@ -24,6 +24,16 @@ class TarefaTest {
 
     }
 
+    @Test
+    public void testGetDescricao() {
+        String descricao1 = tarefa1.getDescricao();
+        String descricao2 = tarefa2.getDescricao();
+
+        assertEquals(descricao1, "Preciso fazer a atividade de vev atá hoje a noite");
+        assertEquals(descricao2, "Ir a academia as 19:00 horas");
+
+    }
+
 }
 
 
