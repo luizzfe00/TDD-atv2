@@ -57,7 +57,7 @@ class TarefaTest {
     @Test
     public void testSetTitulo() {
         tarefa1.setTitulo("Atividade de compila");
-        tarefa1.setTitulo("Yoga");
+        tarefa2.setTitulo("Yoga");
 
         String titulo1 = tarefa1.getTitulo();
         String titulo2 = tarefa2.getTitulo();

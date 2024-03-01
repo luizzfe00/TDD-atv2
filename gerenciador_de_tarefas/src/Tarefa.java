@@ -27,4 +27,8 @@ public class Tarefa {
     public Prioridade getPrioridade() {
         return this.prioridade;
     }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
 }
