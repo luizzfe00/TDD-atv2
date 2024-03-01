@@ -119,6 +119,7 @@ class TarefaTest {
                             Descrição: Preciso fazer a atividade de vev até hoje a noite
                             Data: 2024-03-01
                             Prioridade: ALTA
+                            -------------------------\n
                             """;
 
         assertEquals(conteudo, tarefa1.toString());

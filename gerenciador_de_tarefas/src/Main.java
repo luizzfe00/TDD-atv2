@@ -3,90 +3,99 @@ import java.util.Scanner;
 
 public class Main {
 
-    public static void Main(String[] args) {
+    public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print("""
-                            O que você desaja fazer:
-                            1. Criar atividade
-                            2. Atualizar atividade
-                            3. Excluir atividade
-                            4. Ver atividades
-                            """);
+        Gerenciador gerenciador = new Gerenciador();
 
-        String funcionalidade = scanner.nextLine();
+        while(true) {
 
-        Gerenciador gerenciador =  new Gerenciador();
+            System.out.print("""
+                    O que você desaja fazer:
+                    1. Criar atividade
+                    2. Atualizar atividade
+                    3. Excluir atividade
+                    4. Ver atividades
+                    5. Sair
+                    """);
 
-        switch (funcionalidade) {
-            case "1":
-                System.out.print("Insira o título:");
-                String titulo = scanner.nextLine();
+            String funcionalidade = scanner.nextLine();
 
-                System.out.print("Insira a descrição:");
-                String descricao = scanner.nextLine();
+            switch (funcionalidade) {
+                case "1":
+                    System.out.print("Insira o título: ");
+                    String titulo = scanner.nextLine();
 
-                System.out.print("Insira a data(YY MM DD):");
-                String data = scanner.nextLine();
+                    System.out.print("Insira a descrição: ");
+                    String descricao = scanner.nextLine();
 
-                System.out.print("Insira a priorida(alta, media, baixa:");
-                String prioridade = scanner.nextLine();
+                    System.out.print("Insira a data(YY MM DD): ");
+                    String data = scanner.nextLine();
 
-                boolean status = gerenciador.criaTarefa(titulo, descricao, data, prioridade);
+                    System.out.print("Insira a priorida(alta, media, baixa): ");
+                    String prioridade = scanner.nextLine();
 
-                if (status) {
-                    System.out.print("Tarefa criada");
-                } else {
-                    System.out.print("Desculpe. Algo deu errado.");
-                }
+                    boolean status = gerenciador.criaTarefa(titulo, descricao, data, prioridade);
 
-                break;
+                    if (status) {
+                        System.out.print("Tarefa criada\n");
+                    } else {
+                        System.out.print("Desculpe. Algo deu errado.\n");
+                    }
 
-            case "2":
-                System.out.print("Qual a posição da tarefa que você deseja atualizar:");
-                String index = scanner.nextLine();
+                    break;
 
-                System.out.print("Que campo da tarefa você deseja atualizar:");
-                String campo = scanner.nextLine();
+                case "2":
+                    System.out.print("Qual a posição da tarefa que você deseja atualizar: ");
+                    String index = scanner.nextLine();
 
-                System.out.print("Qual será o novo valor:");
-                String valor = scanner.nextLine();
+                    System.out.print("Que campo da tarefa você deseja atualizar: ");
+                    String campo = scanner.nextLine();
 
-                boolean status2 = gerenciador.atualizaTarefa(index, campo, valor);
+                    System.out.print("Qual será o novo valor: ");
+                    String valor = scanner.nextLine();
 
-                if (status2) {
-                    System.out.print("Tarefa atualizada");
-                } else {
-                    System.out.print("Desculpe. Algo deu errado.");
-                }
+                    boolean status2 = gerenciador.atualizaTarefa(index, campo, valor);
 
-                break;
+                    if (status2) {
+                        System.out.print("Tarefa atualizada\n");
+                    } else {
+                        System.out.print("Desculpe. Algo deu errado.\n");
+                    }
 
-            case "3":
-                System.out.print("Qual a posição da tarefa que você deseja excluir:");
-                String index2 = scanner.nextLine();
+                    break;
 
-                boolean status3 = gerenciador.excluiTarefa(index2);
+                case "3":
+                    System.out.print("Qual a posição da tarefa que você deseja excluir: ");
+                    String index2 = scanner.nextLine();
 
-                if (status3) {
-                    System.out.print("Tarefa excluida");
-                } else {
-                    System.out.print("Desculpe. Algo deu errado.");
-                }
+                    boolean status3 = gerenciador.excluiTarefa(index2);
 
-                break;
+                    if (status3) {
+                        System.out.print("Tarefa excluida\n");
+                    } else {
+                        System.out.print("Desculpe. Algo deu errado.\n");
+                    }
 
-            case "4":
-                System.out.print("Essas são suas tarefas:");
+                    break;
 
-                ArrayList<Tarefa> tarefas = gerenciador.listaTarefas();
+                case "4":
+                    System.out.print("Essas são suas tarefas: \n");
 
-                for (Tarefa tarefa : tarefas){
-                    System.out.print(tarefa.toString());
-                }
+                    ArrayList<Tarefa> tarefas = gerenciador.listaTarefas();
 
-                break;
+                    for (Tarefa tarefa : tarefas) {
+                        System.out.print(tarefa.toString());
+                    }
+
+                    break;
+
+                case "5":
+                    System.out.println("\nEncerrando aplicação.\n");
+                    System.exit(0);
+                    break;
+            }
         }
     }
 }

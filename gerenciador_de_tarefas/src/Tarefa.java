@@ -53,4 +53,18 @@ public class Tarefa {
         Tarefa tarefa = (Tarefa) o;
         return (this.titulo.equals(tarefa.titulo) & this.dataVencimento.equals(tarefa.dataVencimento));
     }
+
+    @Override
+    public String toString() {
+        String conteudo = String.format("""
+                                        Título: %s
+                                        Descrição: %s
+                                        Data: %s
+                                        Prioridade: %s
+                                        -------------------------\n
+                                        """,
+                this.titulo, this.descricao, this.dataVencimento, this.prioridade);
+
+        return conteudo;
+    }
 }
