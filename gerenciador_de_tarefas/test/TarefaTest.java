@@ -54,6 +54,18 @@ class TarefaTest {
 
     }
 
+    @Test
+    public void testSetTitulo() {
+        tarefa1.setTitulo("Atividade de compila");
+        tarefa1.setTitulo("Yoga");
+
+        String titulo1 = tarefa1.getTitulo();
+        String titulo2 = tarefa2.getTitulo();
+
+        assertEquals(titulo1, "Atividade de compila");
+        assertEquals(titulo2, "Yoga");
+
+    }
 }
 
 
