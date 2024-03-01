@@ -1,11 +1,13 @@
+import java.time.LocalDate;
+
 public class Tarefa {
 
     private String titulo;
     private String descricao;
-    private String dataVencimento;
+    private LocalDate dataVencimento;
     private Prioridade prioridade;
 
-    public Tarefa(String titulo, String descricao, String dataVencimento, Prioridade prioridade) {
+    public Tarefa(String titulo, String descricao, LocalDate dataVencimento, Prioridade prioridade) {
         this.titulo = titulo;
         this.descricao = descricao;
         this.dataVencimento = dataVencimento;
@@ -20,7 +22,7 @@ public class Tarefa {
         return this.descricao;
     }
 
-    public String getDataVencimento() {
+    public LocalDate getDataVencimento() {
         return this.dataVencimento;
     }
 
@@ -36,7 +38,7 @@ public class Tarefa {
         this.descricao = descricao;
     }
 
-    public void setDataVencimento(String dataVencimento) {
+    public void setDataVencimento(LocalDate dataVencimento) {
         this.dataVencimento = dataVencimento;
     }
 

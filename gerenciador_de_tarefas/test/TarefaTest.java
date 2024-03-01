@@ -1,6 +1,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.time.LocalDate;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class TarefaTest {
@@ -10,8 +12,8 @@ class TarefaTest {
 
     @BeforeEach
     public void setup() {
-        tarefa1 = new Tarefa("Atividade de vev", "Preciso fazer a atividade de vev até hoje a noite", "01/03/2024", Prioridade.ALTA);
-        tarefa2 = new Tarefa("Academia", "Ir a academia as 19:00 horas", "02/03/2024", Prioridade.BAIXA);
+        tarefa1 = new Tarefa("Atividade de vev", "Preciso fazer a atividade de vev até hoje a noite", LocalDate.of(2024,03,01), Prioridade.ALTA);
+        tarefa2 = new Tarefa("Academia", "Ir a academia as 19:00 horas", LocalDate.of(2024,03,02), Prioridade.BAIXA);
     }
 
     @Test
@@ -36,11 +38,11 @@ class TarefaTest {
 
     @Test
     public void testGetDataVencimento() {
-        String data1 = tarefa1.getDataVencimento();
-        String data2 = tarefa2.getDataVencimento();
+        LocalDate data1 = tarefa1.getDataVencimento();
+        LocalDate data2 = tarefa2.getDataVencimento();
 
-        assertEquals(data1, "01/03/2024");
-        assertEquals(data2, "02/03/2024");
+        assertEquals(data1, LocalDate.of(2024,03,01));
+        assertEquals(data2, LocalDate.of(2024,03,02));
 
     }
 
@@ -82,14 +84,18 @@ class TarefaTest {
 
     @Test
     public void testSetDataVencimento() {
-        tarefa1.setDataVencimento("02/03/2024");
-        tarefa2.setDataVencimento("04/03/2024");
 
-        String data1 = tarefa1.getDataVencimento();
-        String data2 = tarefa2.getDataVencimento();
+        LocalDate novaData1 = LocalDate.of(2024,03,02);
+        LocalDate novaData2 = LocalDate.of(2024,03,04);
 
-        assertEquals(data1, "02/03/2024");
-        assertEquals(data2, "04/03/2024");
+        tarefa1.setDataVencimento(novaData1);
+        tarefa2.setDataVencimento(novaData2);
+
+        LocalDate data1 = tarefa1.getDataVencimento();
+        LocalDate data2 = tarefa2.getDataVencimento();
+
+        assertEquals(data1, novaData1);
+        assertEquals(data2, novaData2);
 
     }
 
