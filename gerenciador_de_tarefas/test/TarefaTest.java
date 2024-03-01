@@ -92,6 +92,19 @@ class TarefaTest {
         assertEquals(data2, "04/03/2024");
 
     }
+
+    @Test
+    public void testSetPrioridade() {
+        tarefa1.setPrioridade(Prioridade.MEDIA);
+        tarefa2.setPrioridade(Prioridade.ALTA);
+
+        Prioridade prioridade1 = tarefa1.getPrioridade();
+        Prioridade prioridade2 = tarefa2.getPrioridade();
+
+        assertEquals(prioridade1, Prioridade.MEDIA);
+        assertEquals(prioridade2, Prioridade.BAIXA);
+
+    }
 }
 
 
