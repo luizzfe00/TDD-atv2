@@ -2,13 +2,13 @@ public class Tarefa {
 
     private String titulo;
     private String descricao;
-    private String data_vencimento;
+    private String dataVencimento;
     private Prioridade prioridade;
 
-    public Tarefa(String titulo, String descricao, String data_vencimento, Prioridade prioridade) {
+    public Tarefa(String titulo, String descricao, String dataVencimento, Prioridade prioridade) {
         this.titulo = titulo;
         this.descricao = descricao;
-        this.data_vencimento = data_vencimento;
+        this.dataVencimento = dataVencimento;
         this.prioridade = prioridade;
     }
 
@@ -18,5 +18,9 @@ public class Tarefa {
 
     public String getDescricao() {
         return this.descricao;
+    }
+
+    public String getDataVencimento() {
+        return this.dataVencimento;
     }
 }
