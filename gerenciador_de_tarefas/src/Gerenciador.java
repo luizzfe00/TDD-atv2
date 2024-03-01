@@ -12,8 +12,8 @@ public class Gerenciador {
         this.tarefas = new ArrayList();
     }
 
-    public boolean criaTarefa(String titulo, String descricao, String dataVencimento, Prioridade prioridade){
-        Tarefa tarefa = new Tarefa(titulo, descricao, converteData(dataVencimento), prioridade);
+    public boolean criaTarefa(String titulo, String descricao, String dataVencimento, String prioridade){
+        Tarefa tarefa = new Tarefa(titulo, descricao, converteData(dataVencimento), Prioridade.valueOf(prioridade.toUpperCase()));
         this.tarefas.add(tarefa);
         return true;
     }
@@ -33,14 +33,7 @@ public class Gerenciador {
                 tarefa.setDataVencimento(converteData(novoValor));
                 break;
             case "prioridade":
-                novoValor = novoValor.toLowerCase();
-                if (novoValor.equals("alta")){
-                    tarefa.setPrioridade(Prioridade.ALTA);
-                } else if (novoValor.equals("media")){
-                    tarefa.setPrioridade(Prioridade.MEDIA);
-                } else {
-                    tarefa.setPrioridade(Prioridade.BAIXA);
-                }
+                    tarefa.setPrioridade(Prioridade.valueOf(novoValor.toUpperCase()));
                 break;
         }
 

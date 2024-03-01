@@ -14,15 +14,15 @@ class GerenciadorTest {
     @BeforeEach
     public void setup() {
         this.gerenciador = new Gerenciador();
-        this.gerenciador.criaTarefa("Atividade de vev", "Preciso fazer a atividade de vev até hoje a noite", "2024 3 1", Prioridade.ALTA);
-        this.gerenciador.criaTarefa("Academia", "Ir a academia as 19:00 horas", "2024 3 2", Prioridade.BAIXA);
-        this.gerenciador.criaTarefa("Entrega trabalho", "Entregar trabalho de compila hoje", "2024 3 1", Prioridade.ALTA);
-        this.gerenciador.criaTarefa("Roupa", "Levar roupa na costureira", "2024 3 1", Prioridade.MEDIA);
+        this.gerenciador.criaTarefa("Atividade de vev", "Preciso fazer a atividade de vev até hoje a noite", "2024 3 1", "alta");
+        this.gerenciador.criaTarefa("Academia", "Ir a academia as 19:00 horas", "2024 3 2", "baixa");
+        this.gerenciador.criaTarefa("Entrega trabalho", "Entregar trabalho de compila hoje", "2024 3 1", "alta");
+        this.gerenciador.criaTarefa("Roupa", "Levar roupa na costureira", "2024 3 1", "media");
     }
 
     @Test
     public void testCriaTarefa() {
-        boolean status = this.gerenciador.criaTarefa("Contas", "Pagar as contas segunda", "2024 3 4", Prioridade.ALTA);
+        boolean status = this.gerenciador.criaTarefa("Contas", "Pagar as contas segunda", "2024 3 4", "alta");
         assertTrue(status);
     }
 
