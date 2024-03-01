@@ -15,4 +15,8 @@ public class Tarefa {
     public String getTitulo() {
         return this.titulo;
     }
+
+    public String getDescricao() {
+        return this.descricao;
+    }
 }
