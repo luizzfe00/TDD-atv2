@@ -41,4 +41,10 @@ public class Gerenciador {
 
         return true;
     }
+
+    public boolean excluiTarefa(String titulo) {
+        this.tarefas.remove(titulo);
+
+        return true;
+    }
 }
