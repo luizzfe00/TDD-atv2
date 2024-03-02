@@ -12,4 +12,12 @@ public class Fatura {
         this.servico = servico;
         this.valor = valor;
     }
+
+    public Double getValor() {
+        return this.valor;
+    }
+
+    public String getServico() {
+        return this.servico;
+    }
 }
