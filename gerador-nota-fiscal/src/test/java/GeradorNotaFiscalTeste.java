@@ -21,4 +21,14 @@ public class GeradorNotaFiscalTeste {
 
         assertEquals(120.0, notaFiscal.getValorImposto(), 0.01);
     }
+
+    @Test
+    void calculaTaxaParaOutrosServicos() {
+        Fatura fatura = new Fatura("Cliente3", "Endereco3", "OUTRO", 1500.0);
+        NotaFiscalGenerator generator = new NotaFiscalGenerator();
+
+        NotaFiscal notaFiscal = generator.gerarNotaFiscal(fatura);
+
+        assertEquals(90.0, notaFiscal.getValorImposto(), 0.01);
+    }
 }
