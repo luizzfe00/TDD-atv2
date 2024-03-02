@@ -42,4 +42,14 @@ public class GeradorNotaFiscalTeste {
 
         assertTrue(gerador.isEmailSent());
     }
+
+    @Test
+    void salvaNoBancoDeDadosAoGerarNotaFiscal() {
+        Fatura fatura = new Fatura("Cliente5", "Endereco5", "OUTRO", 2500.0);
+        GeradorNotaFiscal gerador = new GeradorNotaFiscal();
+
+        NotaFiscal notaFiscal = gerador.gerarNotaFiscal(fatura);
+
+        assertTrue(generator.isSalvoBancoDeDados());
+    }
 }
