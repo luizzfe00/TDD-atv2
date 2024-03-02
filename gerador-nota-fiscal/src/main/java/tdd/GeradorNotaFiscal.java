@@ -1,6 +1,9 @@
 package tdd;
 
 public class GeradorNotaFiscal {
+    private boolean salvoNoBD;
+    private boolean emailEnviado;
+    private boolean sapEnviado;
 
     private double calculaValorImposto(Fatura fatura) {
         Double porcentagemImposto = 0.06;
@@ -14,8 +17,15 @@ public class GeradorNotaFiscal {
         }
         return fatura.getValor() * porcentagemImposto;
     }
+
+    private void enviaEmailNotaGerada(NotaFiscal notaFiscal) {
+        Smtp.envia(notaFiscal);
+        this.emailEnviado = true;
+    }
     public NotaFiscal gerarNotaFiscal(Fatura fatura) {
         Double valorImposto = this.calculaValorImposto(fatura);
-        return new NotaFiscal(fatura, valorImposto);
+        NotaFiscal notaFiscal = new NotaFiscal(fatura, valorImposto);
+        enviaEmailNotaGerada(notaFiscal);
+        return notaFiscal;
     }
 }
