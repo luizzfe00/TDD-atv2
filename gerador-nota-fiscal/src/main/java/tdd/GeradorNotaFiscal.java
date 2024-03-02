@@ -5,6 +5,27 @@ public class GeradorNotaFiscal {
     private boolean emailEnviado;
     private boolean sapEnviado;
 
+    public NotaFiscal gerarNotaFiscal(Fatura fatura) {
+        Double valorImposto = this.calculaValorImposto(fatura);
+        NotaFiscal notaFiscal = new NotaFiscal(fatura, valorImposto);
+        enviaEmailNotaGerada(notaFiscal);
+        enviaSAPNotaGerada(notaFiscal);
+        salvaNotaBD(notaFiscal);
+        return notaFiscal;
+    }
+
+    public boolean isEmailEnviado() {
+        return this.emailEnviado;
+    }
+
+    public boolean isSAPEnviado() {
+        return this.sapEnviado;
+    }
+
+    public boolean isSalvoBancoDeDados() {
+        return this.salvoNoBD;
+    }
+
     private double calculaValorImposto(Fatura fatura) {
         Double porcentagemImposto = 0.06;
         switch (fatura.getServico()) {
@@ -16,15 +37,6 @@ public class GeradorNotaFiscal {
                 break;
         }
         return fatura.getValor() * porcentagemImposto;
-    }
-
-    public NotaFiscal gerarNotaFiscal(Fatura fatura) {
-        Double valorImposto = this.calculaValorImposto(fatura);
-        NotaFiscal notaFiscal = new NotaFiscal(fatura, valorImposto);
-        enviaEmailNotaGerada(notaFiscal);
-        enviaSAPNotaGerada(notaFiscal);
-        salvaNotaBD(notaFiscal);
-        return notaFiscal;
     }
 
     private void enviaEmailNotaGerada(NotaFiscal notaFiscal) {

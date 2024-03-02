@@ -45,7 +45,17 @@ public class GeradorNotaFiscalTeste {
 
         NotaFiscal notaFiscal = gerador.gerarNotaFiscal(fatura);
 
-        assertTrue(gerador.isEmailSent());
+        assertTrue(gerador.isEmailEnviado());
+    }
+
+    @Test
+    void enviaSAPAoGerarNotaFiscal() {
+        Fatura fatura = new Fatura("Cliente4", "Endereco4", "OUTRO", 2000.0);
+        GeradorNotaFiscal gerador = new GeradorNotaFiscal();
+
+        NotaFiscal notaFiscal = gerador.gerarNotaFiscal(fatura);
+
+        assertTrue(gerador.isSAPEnviado());
     }
 
     @Test
