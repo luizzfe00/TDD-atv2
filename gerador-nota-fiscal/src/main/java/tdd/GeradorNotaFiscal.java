@@ -18,14 +18,21 @@ public class GeradorNotaFiscal {
         return fatura.getValor() * porcentagemImposto;
     }
 
-    private void enviaEmailNotaGerada(NotaFiscal notaFiscal) {
-        Smtp.envia(notaFiscal);
-        this.emailEnviado = true;
-    }
     public NotaFiscal gerarNotaFiscal(Fatura fatura) {
         Double valorImposto = this.calculaValorImposto(fatura);
         NotaFiscal notaFiscal = new NotaFiscal(fatura, valorImposto);
         enviaEmailNotaGerada(notaFiscal);
+        enviaSAPNotaGerada(notaFiscal);
         return notaFiscal;
+    }
+
+    private void enviaEmailNotaGerada(NotaFiscal notaFiscal) {
+        Smtp.envia(notaFiscal);
+        this.emailEnviado = true;
+    }
+
+    private void enviaSAPNotaGerada(NotaFiscal notaFiscal) {
+        SAP.envia(notaFiscal);
+        this.sapEnviado = true;
     }
 }
