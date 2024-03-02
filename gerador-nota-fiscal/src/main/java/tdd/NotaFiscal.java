@@ -9,4 +9,8 @@ public class NotaFiscal {
         this.fatura = fatura;
         this.valorImposto = valorImposto;
     }
+
+    public Double getValorImposto() {
+        return this.valorImposto;
+    }
 }
