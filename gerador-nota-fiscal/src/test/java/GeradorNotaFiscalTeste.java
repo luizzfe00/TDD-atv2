@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class GeradorNotaFiscalTeste {
     @Test
@@ -50,6 +51,22 @@ public class GeradorNotaFiscalTeste {
 
         NotaFiscal notaFiscal = gerador.gerarNotaFiscal(fatura);
 
-        assertTrue(generator.isSalvoBancoDeDados());
+        assertTrue(gerador.isSalvoBancoDeDados());
+    }
+
+    @Test
+    void geradorNotaFiscalSemNome() {
+        Fatura fatura = new Fatura(null, "Address", "CONSULTORIA", 1000.0);
+        GeradorNotaFiscal gerador = new GeradorNotaFiscal();
+
+        assertThrows(IllegalArgumentException.class, () -> gerador.gerarNotaFiscal(fatura));
+    }
+
+    @Test
+    void geradorNotaFiscalSemEndereco() {
+        Fatura fatura = new Fatura("Client", null, "CONSULTORIA", 1000.0);
+        GeradorNotaFiscal gerador = new GeradorNotaFiscal();
+
+        assertThrows(IllegalArgumentException.class, () -> gerador.gerarNotaFiscal(fatura));
     }
 }
