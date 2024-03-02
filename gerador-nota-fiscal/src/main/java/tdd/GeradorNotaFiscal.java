@@ -23,6 +23,7 @@ public class GeradorNotaFiscal {
         NotaFiscal notaFiscal = new NotaFiscal(fatura, valorImposto);
         enviaEmailNotaGerada(notaFiscal);
         enviaSAPNotaGerada(notaFiscal);
+        salvaNotaBD(notaFiscal);
         return notaFiscal;
     }
 
@@ -34,5 +35,10 @@ public class GeradorNotaFiscal {
     private void enviaSAPNotaGerada(NotaFiscal notaFiscal) {
         SAP.envia(notaFiscal);
         this.sapEnviado = true;
+    }
+
+    private void salvaNotaBD(NotaFiscal notaFiscal) {
+        NotaFiscalDao.salva(notaFiscal);
+        this.salvoNoBD = true;
     }
 }
