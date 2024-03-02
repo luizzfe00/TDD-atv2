@@ -13,6 +13,14 @@ public class Fatura {
         this.valor = valor;
     }
 
+    public String getEndereco() {
+        return this.endereco;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
     public Double getValor() {
         return this.valor;
     }

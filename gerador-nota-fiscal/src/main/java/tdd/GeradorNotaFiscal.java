@@ -6,6 +6,7 @@ public class GeradorNotaFiscal {
     private boolean sapEnviado;
 
     public NotaFiscal gerarNotaFiscal(Fatura fatura) {
+        validaFatura(fatura);
         Double valorImposto = this.calculaValorImposto(fatura);
         NotaFiscal notaFiscal = new NotaFiscal(fatura, valorImposto);
         enviaEmailNotaGerada(notaFiscal);
@@ -24,6 +25,11 @@ public class GeradorNotaFiscal {
 
     public boolean isSalvoBancoDeDados() {
         return this.salvoNoBD;
+    }
+
+    private void validaFatura(Fatura fatura) {
+        if (fatura.getNome() == null || fatura.getEndereco() == null || fatura.getValor() == null)
+            throw new IllegalArgumentException("Nome, endereco e valor nao podem ser nulos.");
     }
 
     private double calculaValorImposto(Fatura fatura) {

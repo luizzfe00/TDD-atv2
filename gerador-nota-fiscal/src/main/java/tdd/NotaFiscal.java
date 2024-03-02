@@ -13,4 +13,13 @@ public class NotaFiscal {
     public Double getValorImposto() {
         return this.valorImposto;
     }
+
+    @Override
+    public String toString() {
+        return "NotaFiscal={" +
+                "nomeCliente='" + this.fatura.getNome() + '\'' +
+                ", valorNota=" + this.fatura.getValor() +
+                ", valorImposto=" + valorImposto +
+                '}';
+    }
 }
