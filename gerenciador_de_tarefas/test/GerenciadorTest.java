@@ -73,7 +73,7 @@ class GerenciadorTest {
 
     @Test
     public void testAtualizaTarefaIllegal() {
-        assertThrows(NullPointerException.class, () -> {
+        assertThrows(IllegalArgumentException.class, () -> {
             this.gerenciador.atualizaTarefa("2", "nome", "Yoga");
         });
 

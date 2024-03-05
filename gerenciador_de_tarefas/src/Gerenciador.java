@@ -40,6 +40,8 @@ public class Gerenciador {
             case "prioridade":
                     tarefa.setPrioridade(Prioridade.valueOf(novoValor.toUpperCase()));
                 break;
+            default:
+                throw new IllegalArgumentException("O campo deve ser titulo, descricao, data de vencimento ou prioridade. Tente novamente.");
         }
 
 
