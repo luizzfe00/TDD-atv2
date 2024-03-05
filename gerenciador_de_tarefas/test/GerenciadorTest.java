@@ -68,7 +68,7 @@ class GerenciadorTest {
         assertThrows(NullPointerException.class, () -> {
             this.gerenciador.atualizaTarefa("2", "data de vencimento", null);
         });
-        
+
     }
 
     @Test
@@ -76,6 +76,14 @@ class GerenciadorTest {
         boolean status = this.gerenciador.excluiTarefa("1");
 
         assertTrue(status);
+    }
+
+    @Test
+    public void testExcluiTarefaNull() {
+        assertThrows(NullPointerException.class, () -> {
+            this.gerenciador.excluiTarefa(null);
+        });
+
     }
 
     @Test
