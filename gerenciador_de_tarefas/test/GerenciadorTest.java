@@ -60,18 +60,15 @@ class GerenciadorTest {
     @Test
     public void testAtualizaTarefaNull() {
         assertThrows(NullPointerException.class, () -> {
-            this.gerenciador.atualizaTarefa("2", "titulo", "Yoga");
+            this.gerenciador.atualizaTarefa(null, "titulo", "Yoga");
         });
         assertThrows(NullPointerException.class, () -> {
-            this.gerenciador.atualizaTarefa("2", "descricao", "ir segunda");
+            this.gerenciador.atualizaTarefa("2", null, "ir segunda");
         });
         assertThrows(NullPointerException.class, () -> {
-            this.gerenciador.atualizaTarefa("2", "data de vencimento", "2024 3 4");
+            this.gerenciador.atualizaTarefa("2", "data de vencimento", null);
         });
-        assertThrows(NullPointerException.class, () -> {
-            this.gerenciador.atualizaTarefa("2", "prioridade", "alta");
-        });
-
+        
     }
 
     @Test

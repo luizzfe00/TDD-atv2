@@ -21,6 +21,9 @@ public class Gerenciador {
     }
 
     public boolean atualizaTarefa (String indexAtividade, String campo, String novoValor) {
+        if (indexAtividade == null | campo == null | novoValor == null) {
+            throw new NullPointerException("Nenhum dos campos acima pode ser nulo. Tente novamente.");
+        }
         int index = Integer.parseInt(indexAtividade);
         Tarefa tarefa = this.tarefas.get(index-1);
 
