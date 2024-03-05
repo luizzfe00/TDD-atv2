@@ -12,6 +12,9 @@ public class Gerenciador {
     }
 
     public boolean criaTarefa(String titulo, String descricao, String dataVencimento, String prioridade){
+        if (titulo == null | descricao == null | dataVencimento == null | prioridade == null) {
+            throw new NullPointerException("Nenhum dos valores de tarefa pode ser nulo. Tente novamente.");
+        }
         Tarefa tarefa = new Tarefa(titulo, descricao, converteData(dataVencimento), Prioridade.valueOf(prioridade.toUpperCase()));
         this.tarefas.add(tarefa);
         return true;
