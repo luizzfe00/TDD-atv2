@@ -12,7 +12,7 @@ public class Gerenciador {
     }
 
     public boolean criaTarefa(String titulo, String descricao, String dataVencimento, String prioridade){
-        if (titulo == null | descricao == null | dataVencimento == null | prioridade == null) {
+        if (titulo == null || descricao == null || dataVencimento == null || prioridade == null) {
             throw new NullPointerException("Nenhum dos valores de tarefa pode ser nulo. Tente novamente.");
         }
         Tarefa tarefa = new Tarefa(titulo, descricao, converteData(dataVencimento), Prioridade.valueOf(prioridade.toUpperCase()));
@@ -21,7 +21,7 @@ public class Gerenciador {
     }
 
     public boolean atualizaTarefa (String indexAtividade, String campo, String novoValor) {
-        if (indexAtividade == null | campo == null | novoValor == null) {
+        if (indexAtividade == null || campo == null || novoValor == null) {
             throw new NullPointerException("Nenhum dos campos acima pode ser nulo. Tente novamente.");
         }
         int index = Integer.parseInt(indexAtividade);
