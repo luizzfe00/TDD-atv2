@@ -47,6 +47,9 @@ public class Gerenciador {
     }
 
     public boolean excluiTarefa(String indexAtividade) {
+        if (indexAtividade == null) {
+            throw new NullPointerException("A posição não pode ser nula. Tente novamente.");
+        }
         int index = Integer.parseInt(indexAtividade);
         this.tarefas.remove(index-1);
 
