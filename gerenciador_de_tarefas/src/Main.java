@@ -86,6 +86,11 @@ public class Main {
 
                         ArrayList<Tarefa> tarefas = gerenciador.listaTarefas();
 
+                        if (tarefas.isEmpty()){
+                            System.out.println("Você não tem tarefas.");
+                            break;
+                        }
+
                         for (Tarefa tarefa : tarefas) {
                             System.out.print(tarefa.toString());
                         }
