@@ -95,8 +95,8 @@ class GerenciadorTest {
     }
 
     @Test
-    public void testExcluiTarefaIllegal() {
-        assertThrows(IllegalArgumentException.class, () -> {
+    public void testExcluiTarefaIndexOut() {
+        assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
             this.gerenciador.excluiTarefa("7");
         });
 
