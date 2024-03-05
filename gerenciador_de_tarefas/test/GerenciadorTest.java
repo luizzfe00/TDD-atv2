@@ -95,6 +95,14 @@ class GerenciadorTest {
     }
 
     @Test
+    public void testExcluiTarefaIllegal() {
+        assertThrows(IllegalArgumentException.class, () -> {
+            this.gerenciador.excluiTarefa("7");
+        });
+
+    }
+
+    @Test
     public void testListaTarefas() {
         ArrayList<Tarefa> tarefas = this.gerenciador.listaTarefas();
 
