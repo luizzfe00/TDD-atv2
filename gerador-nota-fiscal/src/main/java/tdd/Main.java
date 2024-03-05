@@ -15,9 +15,9 @@ public class Main {
         System.out.print("Informe o valor da fatura:\n");
         String valor = scanner.nextLine();
 
-        String servico = "";
+        Servico servico = Servico.INVALIDO;
 
-        while (servico.isEmpty()) {
+        while (servico == Servico.INVALIDO) {
             System.out.print("""
                     Qual foi o tipo de servico prestado:
                     1. CONSULTORIA
@@ -35,17 +35,17 @@ public class Main {
         System.out.println(notaFiscal.toString());
     }
 
-    private static String obtemServico(String servico) {
+    private static Servico obtemServico(String servico) {
         switch (servico) {
             case "1":
-                return "CONSULTORIA";
+                return Servico.CONSULTORIA;
             case "2":
-                return "TREINAMENTO";
+                return Servico.TREINAMENTO;
             case "3":
-                return "OUTRO";
+                return Servico.OUTRO;
             default:
                 System.out.println("Opção inválida. Tente novamente.");
-                return "";
+                return Servico.INVALIDO;
         }
     }
 }
