@@ -72,6 +72,14 @@ class GerenciadorTest {
     }
 
     @Test
+    public void testAtualizaTarefaIllegal() {
+        assertThrows(NullPointerException.class, () -> {
+            this.gerenciador.atualizaTarefa("2", "nome", "Yoga");
+        });
+
+    }
+
+    @Test
     public void testExcluiTarefa() {
         boolean status = this.gerenciador.excluiTarefa("1");
 
