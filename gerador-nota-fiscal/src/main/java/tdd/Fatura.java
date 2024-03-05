@@ -3,10 +3,10 @@ package tdd;
 public class Fatura {
     private String nome;
     private String endereco;
-    private String servico;
+    private Servico servico;
     private Double valor;
 
-    public Fatura(String nome, String endereco, String servico, Double valor) {
+    public Fatura(String nome, String endereco, Servico servico, Double valor) {
         this.nome = nome;
         this.endereco = endereco;
         this.servico = servico;
@@ -25,7 +25,7 @@ public class Fatura {
         return this.valor;
     }
 
-    public String getServico() {
+    public Servico getServico() {
         return this.servico;
     }
 }

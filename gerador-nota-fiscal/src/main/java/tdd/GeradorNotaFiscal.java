@@ -35,10 +35,10 @@ public class GeradorNotaFiscal {
     private double calculaValorImposto(Fatura fatura) {
         Double porcentagemImposto = 0.06;
         switch (fatura.getServico()) {
-            case "CONSULTORIA":
+            case CONSULTORIA:
                 porcentagemImposto = 0.25;
                 break;
-            case "TREINAMENTO":
+            case TREINAMENTO:
                 porcentagemImposto = 0.15;
                 break;
         }
