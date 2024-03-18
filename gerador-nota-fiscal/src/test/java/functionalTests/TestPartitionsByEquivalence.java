@@ -44,4 +44,24 @@ public class TestPartitionsByEquivalence {
     void servicoVazio() {
         assertThrows(IllegalArgumentException.class, () -> new Fatura("Cliente1", "Endereco1", null, 100.0));
     }
+
+    @Test
+    void nomeClienteVazio() {
+        assertThrows(IllegalArgumentException.class, () -> new Fatura("", "Endereco1", Servico.CONSULTORIA, 100.0));
+    }
+
+    @Test
+    void nomeClienteNull() {
+        assertThrows(IllegalArgumentException.class, () -> new Fatura(null, "Endereco1", Servico.CONSULTORIA, 100.0));
+    }
+
+    @Test
+    void enderecoVazio() {
+        assertThrows(IllegalArgumentException.class, () -> new Fatura("Cliente", "", Servico.CONSULTORIA, 100.0));
+    }
+
+    @Test
+    void enderecoNull() {
+        assertThrows(IllegalArgumentException.class, () -> new Fatura("Cliente", null, Servico.CONSULTORIA, 100.0));
+    }
 }

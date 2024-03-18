@@ -31,10 +31,10 @@ public class Fatura {
     }
 
     private void validaConstrutor(String nome, String endereco, Servico servico, Double valor) {
-        if (nome == null) {
+        if (nome == null || nome.isEmpty() || nome.isBlank()) {
             throw new IllegalArgumentException("Necessário informar um nome");
         }
-        if (endereco == null) {
+        if (endereco == null || endereco.isEmpty() || endereco.isBlank()) {
             throw new IllegalArgumentException("Necessário informar um endereco");
         }
         if (servico == null) {
