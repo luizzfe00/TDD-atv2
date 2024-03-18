@@ -14,7 +14,11 @@ public class NotaFiscal {
         return this.valorImposto;
     }
 
-    @Override
+    public Fatura getFatura() {
+        return this.fatura;
+    }
+
+     @Override
     public String toString() {
         return "NotaFiscal={" +
                 "nomeCliente='" + this.fatura.getNome() + '\'' +
