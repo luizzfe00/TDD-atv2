@@ -1,3 +1,7 @@
+package vev;
+
+import vev.Gerenciador;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -31,7 +35,7 @@ public class Main {
                         System.out.print("Insira a descrição: ");
                         String descricao = scanner.nextLine();
 
-                        System.out.print("Insira a data(YY MM DD): ");
+                        System.out.print("Insira a data(YYYY MM DD): ");
                         String data = scanner.nextLine();
 
                         System.out.print("Insira a priorida(alta, media, baixa): ");
@@ -40,7 +44,7 @@ public class Main {
                         boolean status = gerenciador.criaTarefa(titulo, descricao, data, prioridade);
 
                         if (status) {
-                            System.out.print("Tarefa criada\n");
+                            System.out.print("vev.Tarefa criada\n");
                         } else {
                             System.out.print("Desculpe. Algo deu errado.\n");
                         }
@@ -60,7 +64,7 @@ public class Main {
                         boolean status2 = gerenciador.atualizaTarefa(index, campo, valor);
 
                         if (status2) {
-                            System.out.print("Tarefa atualizada\n");
+                            System.out.print("vev.Tarefa atualizada\n");
                         } else {
                             System.out.print("Desculpe. Algo deu errado.\n");
                         }
@@ -74,7 +78,7 @@ public class Main {
                         boolean status3 = gerenciador.excluiTarefa(index2);
 
                         if (status3) {
-                            System.out.print("Tarefa excluida\n");
+                            System.out.print("vev.Tarefa excluida\n");
                         } else {
                             System.out.print("Desculpe. Algo deu errado.\n");
                         }
