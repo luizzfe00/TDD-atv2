@@ -31,19 +31,26 @@ public class Fatura {
     }
 
     private void validaConstrutor(String nome, String endereco, Servico servico, Double valor) {
-        if (nome == null || nome.isEmpty() || nome.isBlank()) {
+        if (nome == null || nome.isEmpty() || nome.isBlank() || !nome.matches("^[A-Za-z_]+$")) {
             throw new IllegalArgumentException("Necessário informar um nome");
         }
-        if (endereco == null || endereco.isEmpty() || endereco.isBlank()) {
+        if (endereco == null || endereco.isEmpty() || endereco.isBlank() || endereco.length() < 3 || !endereco.matches("^[A-Za-z_\s]+(\\d{1,5})?")) {
             throw new IllegalArgumentException("Necessário informar um endereco");
         }
         if (servico == null) {
             throw new IllegalArgumentException("Necessário informar um servico válido");
         }
-        if (valor == null) {
-            throw new IllegalArgumentException("Necessário informar um valor");
+        if (valor == null || this.maisDeDuasCasasDecimais(valor)) {
+            throw new IllegalArgumentException("Necessário informar um valor válido");
         }
         if (valor < 0.0)
             throw new IllegalArgumentException("Valor precisa ser positivo");
+    }
+
+    private boolean maisDeDuasCasasDecimais(double value) {
+        // Convert double to string
+        String stringValue = Double.toString(value);
+        // Regular expression to match more than 2 decimal places
+        return stringValue.matches("\\d*\\.\\d{3,}");
     }
 }

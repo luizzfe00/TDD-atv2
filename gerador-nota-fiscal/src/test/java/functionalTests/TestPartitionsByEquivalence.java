@@ -11,57 +11,84 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class TestPartitionsByEquivalence {
     @Test
-    void servicoConsultoria() {
-        Fatura fatura = new Fatura("Cliente1", "Endereco1", Servico.CONSULTORIA, 100.0);
+    void testeClienteTamanhoZero() {
+        assertThrows(IllegalArgumentException.class, () -> new Fatura("", "Endereco1", Servico.CONSULTORIA, 1.0));
+    }
+
+    @Test
+    void testeClienteTamanhoMin() {
+        Fatura fatura = new Fatura("C", "Endereco1", Servico.CONSULTORIA, 1.0);
         GeradorNotaFiscal gerador = new GeradorNotaFiscal();
 
         NotaFiscal notaFiscal = gerador.gerarNotaFiscal(fatura);
 
-        assertEquals(25.0, notaFiscal.getValorImposto(), 0.01);
+        assertEquals("C", notaFiscal.getFatura().getNome());
     }
 
     @Test
-    void servicoTreinamento() {
-        Fatura fatura = new Fatura("Cliente1", "Endereco1", Servico.TREINAMENTO, 100.0);
+    void testeClienteCaracteresInvalidos() {
+        assertThrows(IllegalArgumentException.class, () -> new Fatura("Cliente1", "Endereco1", Servico.CONSULTORIA, 1.0));
+    }
+
+    @Test
+    void testeClienteCaracteresValidos() {
+        Fatura fatura = new Fatura("Cliente", "Endereco1", Servico.CONSULTORIA, 1.0);
         GeradorNotaFiscal gerador = new GeradorNotaFiscal();
 
         NotaFiscal notaFiscal = gerador.gerarNotaFiscal(fatura);
 
-        assertEquals(15.0, notaFiscal.getValorImposto(), 0.01);
+        assertEquals("Cliente", notaFiscal.getFatura().getNome());
     }
 
     @Test
-    void servicoOutro() {
-        Fatura fatura = new Fatura("Cliente1", "Endereco1", Servico.OUTRO, 100.0);
+    void testeEnderecoTamanhoZero() {
+        assertThrows(IllegalArgumentException.class, () -> new Fatura("Cliente", "", Servico.CONSULTORIA, 1.0));
+    }
+
+    @Test
+    void testeEnderecoTamanhoMin() {
+        Fatura fatura = new Fatura("Cliente", "Rua", Servico.CONSULTORIA, 1.0);
         GeradorNotaFiscal gerador = new GeradorNotaFiscal();
 
         NotaFiscal notaFiscal = gerador.gerarNotaFiscal(fatura);
 
-        assertEquals(6.0, notaFiscal.getValorImposto(), 0.01);
+        assertEquals("Rua", notaFiscal.getFatura().getEndereco());
     }
 
     @Test
-    void servicoVazio() {
-        assertThrows(IllegalArgumentException.class, () -> new Fatura("Cliente1", "Endereco1", null, 100.0));
+    void testeEnderecoCaracteresInvalidos() {
+        assertThrows(IllegalArgumentException.class, () -> new Fatura("Cliente", "Endereco 1 @", Servico.CONSULTORIA, 1.0));
     }
 
     @Test
-    void nomeClienteVazio() {
-        assertThrows(IllegalArgumentException.class, () -> new Fatura("", "Endereco1", Servico.CONSULTORIA, 100.0));
+    void testeEnderecoCaracteresValidos() {
+        Fatura fatura = new Fatura("Cliente", "Endereco 10000", Servico.CONSULTORIA, 1.0);
+        GeradorNotaFiscal gerador = new GeradorNotaFiscal();
+
+        NotaFiscal notaFiscal = gerador.gerarNotaFiscal(fatura);
+
+        assertEquals("Endereco 10000", notaFiscal.getFatura().getEndereco());
     }
 
     @Test
-    void nomeClienteNull() {
-        assertThrows(IllegalArgumentException.class, () -> new Fatura(null, "Endereco1", Servico.CONSULTORIA, 100.0));
+    void testeValorNegativo() {
+        assertThrows(IllegalArgumentException.class, () -> new Fatura("Cliente", "Endereco 1", Servico.CONSULTORIA, -1.0));
     }
 
     @Test
-    void enderecoVazio() {
-        assertThrows(IllegalArgumentException.class, () -> new Fatura("Cliente", "", Servico.CONSULTORIA, 100.0));
+    void testeValorComMuitasCasasDecimais() {
+        assertThrows(IllegalArgumentException.class, () -> new Fatura("Cliente", "Endereco 1", Servico.CONSULTORIA, 1.521));
     }
 
     @Test
-    void enderecoNull() {
-        assertThrows(IllegalArgumentException.class, () -> new Fatura("Cliente", null, Servico.CONSULTORIA, 100.0));
+    void testeValorValido() {
+        Fatura fatura = new Fatura("Cliente", "Endereco", Servico.CONSULTORIA, 1.00);
+        GeradorNotaFiscal gerador = new GeradorNotaFiscal();
+
+        NotaFiscal notaFiscal = gerador.gerarNotaFiscal(fatura);
+
+        assertEquals(1.0, notaFiscal.getFatura().getValor());
+        assertEquals(0.25, notaFiscal.getValorImposto());
+
     }
 }
