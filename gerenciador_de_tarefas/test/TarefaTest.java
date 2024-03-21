@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import vev.Prioridade;
+import vev.Tarefa;
 
 import java.time.LocalDate;
 
