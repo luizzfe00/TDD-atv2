@@ -1,0 +1,176 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Tarefa</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">vev</a>
+</div>
+
+<h1>Coverage Summary for Class: Tarefa (vev)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Tarefa</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (11/11)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (19/19)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package vev;
+&nbsp;
+&nbsp;import java.time.LocalDate;
+&nbsp;
+&nbsp;public class Tarefa {
+&nbsp;
+&nbsp;    private String titulo;
+&nbsp;    private String descricao;
+&nbsp;    private LocalDate dataVencimento;
+&nbsp;    private Prioridade prioridade;
+&nbsp;
+<b class="fc">&nbsp;    public Tarefa(String titulo, String descricao, LocalDate dataVencimento, Prioridade prioridade) {</b>
+<b class="fc">&nbsp;        this.titulo = titulo;</b>
+<b class="fc">&nbsp;        this.descricao = descricao;</b>
+<b class="fc">&nbsp;        this.dataVencimento = dataVencimento;</b>
+<b class="fc">&nbsp;        this.prioridade = prioridade;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getTitulo() {
+<b class="fc">&nbsp;        return this.titulo;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getDescricao() {
+<b class="fc">&nbsp;        return this.descricao;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public LocalDate getDataVencimento() {
+<b class="fc">&nbsp;        return this.dataVencimento;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Prioridade getPrioridade() {
+<b class="fc">&nbsp;        return this.prioridade;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setTitulo(String titulo) {
+<b class="fc">&nbsp;        this.titulo = titulo;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setDescricao(String descricao) {
+<b class="fc">&nbsp;        this.descricao = descricao;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setDataVencimento(LocalDate dataVencimento) {
+<b class="fc">&nbsp;        this.dataVencimento = dataVencimento;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setPrioridade(Prioridade prioridade) {
+<b class="fc">&nbsp;        this.prioridade = prioridade;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean equals(Object o) {
+<b class="fc">&nbsp;        if (o == null) return false;</b>
+<b class="fc">&nbsp;        if (this.getClass() != o.getClass()) return false;</b>
+<b class="fc">&nbsp;        Tarefa tarefa = (Tarefa) o;</b>
+<b class="fc">&nbsp;        return (this.titulo.equals(tarefa.titulo) &amp; this.dataVencimento.equals(tarefa.dataVencimento));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public String toString() {
+<b class="fc">&nbsp;        String conteudo = String.format(&quot;&quot;&quot;</b>
+&nbsp;                                        Título: %s
+&nbsp;                                        Descrição: %s
+&nbsp;                                        Data: %s
+&nbsp;                                        Prioridade: %s
+&nbsp;                                        -------------------------\n
+&nbsp;                                        &quot;&quot;&quot;,
+&nbsp;                this.titulo, this.descricao, this.dataVencimento, this.prioridade);
+&nbsp;
+<b class="fc">&nbsp;        return conteudo;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-04-03 14:06</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,218 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=windows-1252"> 
+  <title>Coverage Report > Main</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">vev</a>
+</div>
+
+<h1>Coverage Summary for Class: Main (vev)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Main</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/52)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package vev;
+&nbsp;
+&nbsp;import vev.Gerenciador;
+&nbsp;
+&nbsp;import java.util.ArrayList;
+&nbsp;import java.util.Scanner;
+&nbsp;
+<b class="nc">&nbsp;public class Main {</b>
+&nbsp;
+&nbsp;    public static void main(String[] args) {
+&nbsp;
+<b class="nc">&nbsp;        Scanner scanner = new Scanner(System.in);</b>
+&nbsp;
+<b class="nc">&nbsp;        Gerenciador gerenciador = new Gerenciador();</b>
+&nbsp;
+&nbsp;        while(true) {
+&nbsp;
+<b class="nc">&nbsp;            System.out.print(&quot;&quot;&quot;</b>
+&nbsp;                    O que você desaja fazer:
+&nbsp;                    1. Criar atividade
+&nbsp;                    2. Atualizar atividade
+&nbsp;                    3. Excluir atividade
+&nbsp;                    4. Ver atividades
+&nbsp;                    5. Sair
+&nbsp;                    &quot;&quot;&quot;);
+&nbsp;
+<b class="nc">&nbsp;            String funcionalidade = scanner.nextLine();</b>
+&nbsp;
+&nbsp;            try {
+<b class="nc">&nbsp;                switch (funcionalidade) {</b>
+&nbsp;                    case &quot;1&quot;:
+<b class="nc">&nbsp;                        System.out.print(&quot;Insira o título: &quot;);</b>
+<b class="nc">&nbsp;                        String titulo = scanner.nextLine();</b>
+&nbsp;
+<b class="nc">&nbsp;                        System.out.print(&quot;Insira a descrição: &quot;);</b>
+<b class="nc">&nbsp;                        String descricao = scanner.nextLine();</b>
+&nbsp;
+<b class="nc">&nbsp;                        System.out.print(&quot;Insira a data(YYYY MM DD): &quot;);</b>
+<b class="nc">&nbsp;                        String data = scanner.nextLine();</b>
+&nbsp;
+<b class="nc">&nbsp;                        System.out.print(&quot;Insira a priorida(alta, media, baixa): &quot;);</b>
+<b class="nc">&nbsp;                        String prioridade = scanner.nextLine();</b>
+&nbsp;
+<b class="nc">&nbsp;                        boolean status = gerenciador.criaTarefa(titulo, descricao, data, prioridade);</b>
+&nbsp;
+<b class="nc">&nbsp;                        if (status) {</b>
+<b class="nc">&nbsp;                            System.out.print(&quot;vev.Tarefa criada\n&quot;);</b>
+&nbsp;                        } else {
+<b class="nc">&nbsp;                            System.out.print(&quot;Desculpe. Algo deu errado.\n&quot;);</b>
+&nbsp;                        }
+&nbsp;
+<b class="nc">&nbsp;                        break;</b>
+&nbsp;
+&nbsp;                    case &quot;2&quot;:
+<b class="nc">&nbsp;                        System.out.print(&quot;Qual a posição da tarefa que você deseja atualizar: &quot;);</b>
+<b class="nc">&nbsp;                        String index = scanner.nextLine();</b>
+&nbsp;
+<b class="nc">&nbsp;                        System.out.print(&quot;Que campo da tarefa você deseja atualizar: &quot;);</b>
+<b class="nc">&nbsp;                        String campo = scanner.nextLine();</b>
+&nbsp;
+<b class="nc">&nbsp;                        System.out.print(&quot;Qual será o novo valor: &quot;);</b>
+<b class="nc">&nbsp;                        String valor = scanner.nextLine();</b>
+&nbsp;
+<b class="nc">&nbsp;                        boolean status2 = gerenciador.atualizaTarefa(index, campo, valor);</b>
+&nbsp;
+<b class="nc">&nbsp;                        if (status2) {</b>
+<b class="nc">&nbsp;                            System.out.print(&quot;vev.Tarefa atualizada\n&quot;);</b>
+&nbsp;                        } else {
+<b class="nc">&nbsp;                            System.out.print(&quot;Desculpe. Algo deu errado.\n&quot;);</b>
+&nbsp;                        }
+&nbsp;
+<b class="nc">&nbsp;                        break;</b>
+&nbsp;
+&nbsp;                    case &quot;3&quot;:
+<b class="nc">&nbsp;                        System.out.print(&quot;Qual a posição da tarefa que você deseja excluir: &quot;);</b>
+<b class="nc">&nbsp;                        String index2 = scanner.nextLine();</b>
+&nbsp;
+<b class="nc">&nbsp;                        boolean status3 = gerenciador.excluiTarefa(index2);</b>
+&nbsp;
+<b class="nc">&nbsp;                        if (status3) {</b>
+<b class="nc">&nbsp;                            System.out.print(&quot;vev.Tarefa excluida\n&quot;);</b>
+&nbsp;                        } else {
+<b class="nc">&nbsp;                            System.out.print(&quot;Desculpe. Algo deu errado.\n&quot;);</b>
+&nbsp;                        }
+&nbsp;
+<b class="nc">&nbsp;                        break;</b>
+&nbsp;
+&nbsp;                    case &quot;4&quot;:
+<b class="nc">&nbsp;                        System.out.print(&quot;Essas são suas tarefas: \n&quot;);</b>
+&nbsp;
+<b class="nc">&nbsp;                        ArrayList&lt;Tarefa&gt; tarefas = gerenciador.listaTarefas();</b>
+&nbsp;
+<b class="nc">&nbsp;                        if (tarefas.isEmpty()){</b>
+<b class="nc">&nbsp;                            System.out.println(&quot;Você não tem tarefas.&quot;);</b>
+<b class="nc">&nbsp;                            break;</b>
+&nbsp;                        }
+&nbsp;
+<b class="nc">&nbsp;                        for (Tarefa tarefa : tarefas) {</b>
+<b class="nc">&nbsp;                            System.out.print(tarefa.toString());</b>
+<b class="nc">&nbsp;                        }</b>
+&nbsp;
+<b class="nc">&nbsp;                        break;</b>
+&nbsp;
+&nbsp;                    case &quot;5&quot;:
+<b class="nc">&nbsp;                        System.out.println(&quot;\nEncerrando aplicação.\n&quot;);</b>
+<b class="nc">&nbsp;                        System.exit(0);</b>
+&nbsp;                        break;
+&nbsp;                }
+<b class="nc">&nbsp;            } catch (Exception e) {</b>
+<b class="nc">&nbsp;                System.err.println(e.getMessage());</b>
+<b class="nc">&nbsp;            }</b>
+<b class="nc">&nbsp;        }</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-04-03 14:06</div>
+</div>
+</body>
+</html>
